@@ -1,4 +1,7 @@
 # config_audit
+
+Source: http://www.vulnerabilityassessment.co.uk/nipper.htm
+
 Nipper
  
 Nipper is a Network Infrastructure Configuration Parser. Nipper takes a network infrastructure device configuration, processes the file and details security-related issues with detailed recommendations. Nipper was previous known as CiscoParse.
