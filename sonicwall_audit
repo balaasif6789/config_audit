@@ -1,0 +1,20 @@
+1 .Run the below code to add the function to the current shell in powershell 
+
+PS C:\Users\MUM1117> function Convert-SonicWALLexp ($FilePath,$OutFile=("$($FilePath.Substring(0,$FilePath.Length - 4)).
+txt"))
+>> {
+>>     $tempFile = ".\asdfadasasdfawefasdfawef"
+>>     (Get-Content $FilePath) -replace ".{2}$" | Out-File -Encoding default -FilePath "$($tempFile).exp"
+>>     $arguments = @("-decode","$($tempFile).exp","$($tempFile).txt")
+>>     & certutil.exe $arguments
+>>     (Get-Content "$($tempFile).txt") -replace '\&',"`n" | Out-File $OutFile
+>>     Remove-Item "$($tempFile).txt"
+>>     Remove-Item "$($tempFile).exp"
+>> }
+
+2. Run the command below:
+
+PS C:\Users\MUM1117> Convert-SonicWALLexp -FilePath '.\sonicwall-NSA_3600-6_5_1_3-12n (1).exp' sonicwalloutput.txt
+Input Length = 2306318
+Output Length = 1729737
+CertUtil: -decode command completed successfully.
